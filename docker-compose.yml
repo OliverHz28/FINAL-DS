@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./legacy_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - micro_service
+
+  micro_service:
+    build:
+      context: ./new_microservice
+    ports:
+      - "5001:5001"
